@@ -11,6 +11,9 @@ export const GlobalStyle = createGlobalStyle`
         list-style: none;
         border: 0;
     }
+    body {
+        background-color: #cdcdcd;
+    }
 `
 
 const BasicLayout = ({ children }: { children: any}) => {
