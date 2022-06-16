@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import styled from 'styled-components'
+
 import BasicLayout from 'layout/Basic'
 
 const Title = styled.h1`

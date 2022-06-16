@@ -1,6 +1,15 @@
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyle = createGlobalStyle`
+interface BasicProps {
+    backgroundColor?: string
+    children: any
+}
+
+interface GlobalStyleProps {
+    backgroundColor: string
+}
+
+export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
     *,
     ::before,
     ::after {
@@ -12,14 +21,15 @@ export const GlobalStyle = createGlobalStyle`
         border: 0;
     }
     body {
-        background-color: #cdcdcd;
+        background: ${props => props.backgroundColor};
+        color: #808080;
     }
 `
 
-const BasicLayout = ({ children }: { children: any}) => {
+const BasicLayout = ({ backgroundColor, children }: BasicProps) => {
     return (
         <>
-            <GlobalStyle />
+            <GlobalStyle backgroundColor={backgroundColor || "#000"}/>
             {children}
         </>
     )
