@@ -2,15 +2,15 @@ import type { NextPage } from 'next'
 import { useState } from 'react'
 import styled, { DefaultTheme, ThemeProvider} from 'styled-components'
 import Switch from 'react-switch'
-import { combineTheme, dark, light } from 'styles/themes'
 
 import BasicLayout from 'layout/Basic'
 
 import { GlobalStyle } from 'styles/global'
+import { combineTheme, dark, light } from 'styles/themes'
 
 const Title = styled.h1`
   color: #808080;
-  `
+`
 
 const Home: NextPage = () => {
   const [theme, setTheme] = useState<DefaultTheme>(combineTheme(light))
