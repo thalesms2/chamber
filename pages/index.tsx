@@ -36,7 +36,6 @@ const Home: NextPage = () => {
           width={48}
           className="m-2"/>
       </ThemeProvider>
-      <Title>Index</Title>
     </BasicLayout>
   )
 }
