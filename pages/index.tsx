@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Link from 'next/link'
 import { useState } from 'react'
 import styled, { DefaultTheme, ThemeProvider} from 'styled-components'
 import Switch from 'react-switch'
@@ -7,6 +8,7 @@ import BasicLayout from 'layout/Basic'
 
 import { GlobalStyle } from 'styles/global'
 import { combineTheme, dark, light } from 'styles/themes'
+import Card from 'layout/Card'
 
 const Title = styled.h1`
   color: #808080;
@@ -35,6 +37,21 @@ const Home: NextPage = () => {
           height={20}
           width={48}
           className="m-2"/>
+        <Card title='Css'>
+          <Card title='Illustrations'>
+            <Link href="/css/illustrations/first">First</Link>
+          </Card>
+          <Card title='Tailwind'>
+            <Link href="/css/tailwind/teste">Teste</Link>
+          </Card>
+          <Link href="/css/menu-animated">Menu Animated</Link>
+          <Link href="/css/login-form">Login Form</Link>
+          <Link href="/css/ham-animation">Ham Animation</Link>
+          <Link href="/css/fullscreen-overlay-menu">Fullscreen Overlay Menu</Link>
+        </Card>
+        <Card title='Front'>
+          <Link href="/front/infinity">Infinito</Link>
+        </Card>
       </ThemeProvider>
     </BasicLayout>
   )
