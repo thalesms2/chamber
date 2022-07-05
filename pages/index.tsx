@@ -37,7 +37,7 @@ const Home: NextPage = () => {
           height={20}
           width={48}
           className="m-2"/>
-        <Card title='Css'>
+        <Card title='Css' header>
           <Card title='Illustrations'>
             <Link href="/css/illustrations/first">First</Link>
           </Card>
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
           <Link href="/css/ham-animation">Ham Animation</Link>
           <Link href="/css/fullscreen-overlay-menu">Fullscreen Overlay Menu</Link>
         </Card>
-        <Card title='Front'>
+        <Card title='Front' header>
           <Link href="/front/infinity">Infinito</Link>
         </Card>
       </ThemeProvider>
