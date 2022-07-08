@@ -7,7 +7,7 @@ const teste = keyframes`
     transform: translateX(0px);
   }
   to {
-    transform: translateX(-150px);
+    transform: translateX(1500px);
     background-color: red
   }
 `
