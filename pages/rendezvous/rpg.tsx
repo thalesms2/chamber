@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import TextField from '@mui/material/TextField';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
