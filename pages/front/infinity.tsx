@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import styled, { keyframes } from 'styled-components'
 
-import BasicLayout from 'layout/Basic'
+import Head from 'components/Head'
 
 export const BackgroundContainer = styled.div`
     width: 350px;
@@ -91,13 +91,13 @@ export const StarContainer2 = styled.div`
 
 const Infinity: NextPage = () => {
     return(
-        <BasicLayout>
+        <Head title='Infinity'>
             <BackgroundContainer>
                 <h1>Infinity</h1>
                 <StarContainer />
                 <StarContainer2 />
             </BackgroundContainer>
-        </BasicLayout>
+        </Head>
     )
 }
 

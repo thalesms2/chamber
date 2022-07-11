@@ -44,4 +44,4 @@ const BinDec: NextPage = () => {
 
 export default BinDec
 
-// Seletor para campo e clickable insert 
+// TODO Clickable selector for the binary number

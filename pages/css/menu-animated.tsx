@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import styled from 'styled-components'
 
-import BasicLayout from 'layout/Basic'
+import Head from 'components/Head'
 
 interface LinkProps {
     color: string
@@ -59,7 +59,7 @@ const Home: NextPage = () => {
     // azul vermelho amarelo verde rosa
 
     return (
-        <BasicLayout>
+        <Head title='Menu Animated'>
             <Wrapper>
                 <List>
                     <Item>
@@ -79,7 +79,7 @@ const Home: NextPage = () => {
                     </Item>
                 </List>
             </Wrapper>
-        </BasicLayout>
+        </Head>
     )
 }
 

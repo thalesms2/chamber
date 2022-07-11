@@ -1,60 +1,75 @@
-import type { NextPage } from 'next'
-import Link from 'next/link'
-import { useState } from 'react'
-import styled, { DefaultTheme, ThemeProvider} from 'styled-components'
-import Switch from 'react-switch'
+import type { NextPage } from "next";
+import Link from "next/link";
+import React from "react";
 
-import BasicLayout from 'layout/Basic'
+import Head from "components/Head";
+import Card from "components/Card";
+import styled from "styled-components";
 
-import { GlobalStyle } from 'styles/global'
-import { combineTheme, dark, light } from 'styles/themes'
-import Card from 'layout/Card'
-
-const Title = styled.h1`
-  color: #808080;
+const Content = styled.div`
+    display: flex;
+    flex-direction: row;
 `
 
 const Home: NextPage = () => {
-  const [theme, setTheme] = useState<DefaultTheme>(combineTheme(light))
-  
-  const toggleTheme = () => {
-    setTheme(theme.title === 'light' ? combineTheme(dark) : combineTheme(light))
-  }
-  return (
-    <BasicLayout>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Switch 
-          checked={theme.title === 'dark'} 
-          onChange={toggleTheme} 
-          onColor="#86d3ff"
-          onHandleColor="#2693e6"
-          handleDiameter={30}
-          uncheckedIcon={false}
-          checkedIcon={false}
-          boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
-          activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
-          height={20}
-          width={48}
-          className="m-2"/>
-        <Card title='Css' header>
-          <Card title='Illustrations'>
-            <Link href="/css/illustrations/first">First</Link>
-          </Card>
-          <Card title='Tailwind'>
-            <Link href="/css/tailwind/teste">Teste</Link>
-          </Card>
-          <Link href="/css/menu-animated">Menu Animated</Link>
-          <Link href="/css/login-form">Login Form</Link>
-          <Link href="/css/ham-animation">Ham Animation</Link>
-          <Link href="/css/fullscreen-overlay-menu">Fullscreen Overlay Menu</Link>
-        </Card>
-        <Card title='Front' header>
-          <Link href="/front/infinity">Infinito</Link>
-        </Card>
-      </ThemeProvider>
-    </BasicLayout>
-  )
-}
+    return (
+        <Head title="Home">
+            <Content>
+                <Card title="Css">
+                    <Link href="/css/first">
+                        First
+                    </Link>
+                    <Link href="/css/teste">
+                        Teste
+                    </Link>
+                    <Link href="/css/menu-animated">
+                        Menu Animated
+                    </Link>
+                    <Link href="/css/login-form">
+                        Login Form
+                    </Link>
+                    <Link href="/css/ham-animation">
+                        Ham Animation
+                    </Link>
+                    <Link href="/css/fullscreen-overlay-menu">
+                        Fullscreen Overlay Menu
+                    </Link>
+                </Card>
+                <Card title="Front">
+                    <Link href="/front/infinity">Infinito</Link>
+                </Card>
+                <Card title="Rendezvous">
+                    <Link href="/rendezvous/form">
+                        Form
+                    </Link>
+                    <Link href="/rendezvous/rpg">
+                        Rpg
+                    </Link>
+                    <Link href="/rendezvous">
+                        Rendezvous
+                    </Link>
+                </Card>
+                <Card title="Shorts">
+                    <Link href="/shorts/bin2dec">
+                        Bin2Dec
+                    </Link>
+                    <Link href="/shorts/border-radius">
+                        Border Radius Editor
+                    </Link>
+                    <Link href="/shorts/calculator">
+                        Calculator
+                    </Link>
+                </Card>
+            </Content>
+        </Head>
+    );
+};
 
-export default Home
+export default Home;
+
+// TODO Global theme
+// TODO Components reusable
+// TODO Header with navigation menu
+// TODO Homepage with explanation and all exercises
+// TODO Refactor and organize folders
+// TODO Break apart hooks and types

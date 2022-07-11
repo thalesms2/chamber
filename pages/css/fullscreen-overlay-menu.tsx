@@ -1,15 +1,15 @@
-import type { NextPage } from 'next'
-import styled from 'styled-components'
+import type { NextPage } from "next";
+import styled from "styled-components";
 
-import BasicLayout from 'layout/Basic'
+import Head from "components/Head";
 
 const Wrapper = styled.div`
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    input[type="checkbox"]{
+    font-family: "Poppins", sans-serif;
+    input[type="checkbox"] {
         display: none;
     }
-`
+`;
 
 const MenuWrapper = styled.div`
     position: fixed;
@@ -23,8 +23,7 @@ const MenuWrapper = styled.div`
     #active:checked ~ & {
         clip-path: circle(75%);
     }
-    
-`
+`;
 
 const MenuBtn = styled.label`
     position: absolute;
@@ -41,14 +40,14 @@ const MenuBtn = styled.label`
     cursor: pointer;
     background: linear-gradient(-135deg, #c850c0, #4158d0);
     transition: all 0.3s ease-in-out;
-    #active:checked + &{
+    #active:checked + & {
         background: #fff;
         color: #4158d0;
     }
-    #active:checked + & i:before{
+    #active:checked + & i:before {
         content: "\f00d";
     }
-`
+`;
 
 const List = styled.ul`
     position: absolute;
@@ -57,10 +56,10 @@ const List = styled.ul`
     transform: translate(-50%, -50%);
     list-style: none;
     text-align: center;
-    li{
+    li {
         margin: 15px 0;
     }
-    li a{
+    li a {
         color: none;
         text-decoration: none;
         font-size: 30px;
@@ -71,7 +70,7 @@ const List = styled.ul`
         line-height: 50px;
         transition: all 0.3s ease;
     }
-    li a:after{
+    li a:after {
         position: absolute;
         content: "";
         background: #fff;
@@ -83,13 +82,13 @@ const List = styled.ul`
         z-index: -1;
         transition: transform 0.3s ease;
     }
-    li a:hover:after{
+    li a:hover:after {
         transform: scaleY(1);
     }
-    li a:hover{
+    li a:hover {
         color: #4158d0;
     }
-`
+`;
 
 const Content = styled.div`
     position: absolute;
@@ -100,40 +99,52 @@ const Content = styled.div`
     text-align: center;
     width: 100%;
     color: #b0b0b0;
-`
+`;
 
 const Title = styled.h1`
     font-size: 40px;
     font-weight: 700;
-`
+`;
 
 const Text = styled.p`
     font-size: 35px;
     font-weight: 600;
-`
+`;
 
 const Home: NextPage = () => {
-  return (
-    <BasicLayout>
-        <Wrapper>
-            <input type="checkbox" id="active" />
-            <MenuBtn htmlFor="active"><i className="fas fa-bars"></i></MenuBtn>
-            <MenuWrapper>
-                <List>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Feedback</a></li>
-                </List>
-            </MenuWrapper>
-            <Content>
-                <Title>Fullscreen Overlay Navigation Bar</Title>
-                <Text>using only HTML & CSS</Text>
-            </Content>
-        </Wrapper>
-    </BasicLayout>
-  )
-}
+    return (
+        <Head title="Fullscreen Overlay Menu">
+            <Wrapper>
+                <input type="checkbox" id="active" />
+                <MenuBtn htmlFor="active">
+                    <i className="fas fa-bars"></i>
+                </MenuBtn>
+                <MenuWrapper>
+                    <List>
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Services</a>
+                        </li>
+                        <li>
+                            <a href="#">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="#">Feedback</a>
+                        </li>
+                    </List>
+                </MenuWrapper>
+                <Content>
+                    <Title>Fullscreen Overlay Navigation Bar</Title>
+                    <Text>using only HTML & CSS</Text>
+                </Content>
+            </Wrapper>
+        </Head>
+    );
+};
 
 export default Home

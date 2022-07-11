@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import styled from 'styled-components'
 
-import BasicLayout from 'layout/Basic'
+import Head from 'components/Head'
 import { useState } from 'react'
 
 interface HamProps {
@@ -64,13 +64,13 @@ const Home: NextPage = () => {
         active ? setActive(false) : setActive(true)
     }
     return (
-        <BasicLayout>
+        <Head title='Hamburguer Animation'>
             <Wrapper>
                 <HamButton active={active} onClick={(e) => handleClick()}>
                     <div></div>
                 </HamButton>
             </Wrapper>
-        </BasicLayout>
+        </Head>
     )
 }
 

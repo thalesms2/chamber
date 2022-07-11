@@ -1,15 +1,15 @@
 import type { NextPage } from 'next'
 import styled from 'styled-components'
 
-import BasicLayout from 'layout/Basic'
+import Head from 'components/Head'
 
 
 
 const Home: NextPage = () => {
   return (
-    <BasicLayout>
+    <Head title='teste de tailwindcss'>
       <h1 className="text-red-500 font-normal mt-1 ">Index</h1>
-    </BasicLayout>
+    </Head>
   )
 }
 

@@ -85,3 +85,6 @@ const BorderRadius: NextPage = () => {
 }
 
 export default BorderRadius
+
+// TODO Copy CSS to the clipboard
+// TODO Add all props on border radius in order to create a complex shape

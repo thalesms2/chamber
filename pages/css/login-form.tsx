@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import styled, { keyframes } from 'styled-components'
 
-import BasicLayout from 'layout/Basic'
+import Head from 'components/Head'
 
 const btnAnim1 = keyframes`
     0% {
@@ -160,7 +160,7 @@ const Box = styled.div`
 
 const Home: NextPage = () => {
   return (
-    <BasicLayout>
+    <Head title='Login Form'>
         <Wrapper>
             <LoginBox>
                 <h2>Login</h2>
@@ -183,7 +183,7 @@ const Home: NextPage = () => {
                 </Form>
             </LoginBox>
         </Wrapper>
-    </BasicLayout>
+    </Head>
   )
 }
 
