@@ -14,7 +14,7 @@ const Content = styled.div`
 
 const Home: NextPage = () => {
     return (
-        <Head title="Home">
+        <Head title="Home" home>
             <Content>
                 <Card title="Css">
                     <Link href="/css/first">

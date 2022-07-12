@@ -18,7 +18,7 @@ const MenuWrapper = styled.div`
     height: 100%;
     width: 100%;
     background: linear-gradient(-135deg, #c850c0, #4158d0);
-    clip-path: circle(25px at calc(100% - 45px) 45px);
+    clip-path: circle(25px at calc(100% - 45px) 85px);
     transition: all 0.3s ease-in-out;
     #active:checked ~ & {
         clip-path: circle(75%);
@@ -29,7 +29,7 @@ const MenuBtn = styled.label`
     position: absolute;
     z-index: 2;
     right: 20px;
-    top: 20px;
+    top: 60px;
     height: 50px;
     width: 50px;
     text-align: center;

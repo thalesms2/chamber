@@ -2,6 +2,8 @@ import React from 'react'
 import { combineTheme, dark, light } from 'styles/themes'
 import styled, { createGlobalStyle, DefaultTheme, ThemeProvider } from "styled-components";
 import Switch from 'react-switch';
+import { FaRegArrowAltCircleLeft } from 'react-icons/fa'
+import Link from 'next/link';
 
 interface HeadProps {
     children: any
@@ -31,13 +33,19 @@ const Header = styled.div`
     justify-content: space-between;
     align-items: center;
     background-color: ${props => props.theme.colors.header};
+    padding: 0 .5em;
 `
 const Title = styled.h1`
     font-size: 1.2em;
     margin-left: .5em;
 `
 
-const Head = ({ title, children }: HeadProps) => {
+const TitleWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+
+const Head = ({ title, children, home }: HeadProps) => {
     const [theme, setTheme] = React.useState<DefaultTheme>(combineTheme(light))
     const toggleTheme = () => {
         setTheme(theme.title === 'light' ? combineTheme(dark) : combineTheme(light))
@@ -46,12 +54,15 @@ const Head = ({ title, children }: HeadProps) => {
     return (
         <ThemeProvider theme={theme}>
             <Header>
-                <Title>{title}</Title>
+                <TitleWrapper>
+                    { home ? '' : <Link href='/'><FaRegArrowAltCircleLeft fontSize={30} /></Link>}
+                    <Title>{title}</Title>
+                </TitleWrapper>
                 <Switch 
                     checked={theme.title === 'dark'} 
                     onChange={toggleTheme} 
                     onColor="#86d3ff"
-                    onHandleColor="#2693e6"
+                    onHandleColor={theme.colors.primary}
                     handleDiameter={30}
                     uncheckedIcon={false}
                     checkedIcon={false}
