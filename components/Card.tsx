@@ -33,6 +33,8 @@ const Line = styled.div`
 const Option = styled.div`
     padding: .2em .2em;
     margin: .2em 0;
+    border-radius: .5em;
+    transition: ease-in .2s;
     &:hover {
         background-color: ${props => props.theme.colors.background};
         cursor: pointer;
