@@ -25,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         background: ${props => props.theme.colors.background};
         color: ${props => props.theme.colors.text};
+        transition: ease .2s;
     }
 `
 const Header = styled.div`
@@ -33,6 +34,7 @@ const Header = styled.div`
     justify-content: space-between;
     align-items: center;
     background-color: ${props => props.theme.colors.header};
+    transition: ease .2s;
     padding: 0 .5em;
 `
 const Title = styled.h1`
