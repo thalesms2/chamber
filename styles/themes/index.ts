@@ -4,8 +4,8 @@ import light from './light'
 
 const defaultTheme = {
     fontSizes: {
-        small: '1em',
-        medium: '1.2em',
+        small: '.8em',
+        medium: '1em',
         large: '1.5em',
     },
 }

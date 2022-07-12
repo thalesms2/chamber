@@ -9,6 +9,7 @@ import styled from "styled-components";
 const Content = styled.div`
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 `
 
 const Home: NextPage = () => {
@@ -73,3 +74,7 @@ export default Home;
 // TODO Homepage with explanation and all exercises
 // TODO Refactor and organize folders
 // TODO Break apart hooks and types
+
+
+// Font 
+// font-family: 'Edu VIC WA NT Beginner', cursive;

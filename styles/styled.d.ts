@@ -5,9 +5,9 @@ declare module 'styled-components' {
         title: string
         colors: {
             primary: string
-            secundary: string
-
+            header: string
             background: string
+            backgroundSecundary: string
             text: string
         }
         fontSizes: {
@@ -20,9 +20,9 @@ declare module 'styled-components' {
         title: string
         colors: {
             primary: string
-            secundary: string
-
+            header: string
             background: string
+            backgroundSecundary: string
             text: string
         }
     }

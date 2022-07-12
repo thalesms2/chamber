@@ -3,9 +3,10 @@ import { combineTheme, dark, light } from 'styles/themes'
 import styled, { createGlobalStyle, DefaultTheme, ThemeProvider } from "styled-components";
 import Switch from 'react-switch';
 
-interface WrapperProps {
+interface HeadProps {
     children: any
     title: string
+    home?: boolean
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -29,13 +30,14 @@ const Header = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background-color: ${props => props.theme.colors.header};
 `
 const Title = styled.h1`
     font-size: 1.2em;
     margin-left: .5em;
 `
 
-const Head = ({ title, children }: WrapperProps) => {
+const Head = ({ title, children }: HeadProps) => {
     const [theme, setTheme] = React.useState<DefaultTheme>(combineTheme(light))
     const toggleTheme = () => {
         setTheme(theme.title === 'light' ? combineTheme(dark) : combineTheme(light))
