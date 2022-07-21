@@ -1,3 +1,4 @@
+import { equal } from 'assert'
 import Head from 'components/Head'
 import { NextPage } from 'next'
 import React from 'react'
@@ -69,63 +70,101 @@ const Display = styled.div`
     height: 100px;
     grid-column-start: span 4;
 `
+const DisplayPrimary = styled.div`
+
+`
+const DisplaySecundary = styled.div`
+
+`
 
 const Calculator: NextPage = () => {
-    const [result, setResult] = React.useState<number>()
+    const [result, setResult] = React.useState<string>()
     const [operation, setOperation] = React.useState<string>()
-    function handleInsert(num: number) {
+    function handleNumberInsert(num: string) {
         if(!result) {
             setResult(num)
         } else {
-            switch(operation) {
-                case '+':
-                    setOperation(undefined)
-                    break
-                case '-':
-                    setOperation(undefined)
-                    break
-                case '*':
-                    setOperation(undefined)
-                    break
-                case '/':
-                    setOperation(undefined)
-                    break
-                case '=':
-                    setOperation(undefined)
-                    break
-                case 'C':
-                    setOperation(undefined)
-                    break
-                case 'R':
-                    setOperation(undefined)
-                    break
-            }
+            setResult(result + num)
+        }
+    }
+    function handleOperationInsert(op: string) {
+        if(result && operation) {
+            setResult(undefined)
+            setOperation(`${operation} ${result} ${op}`)
+        } else if(result) {
+            setResult(undefined)
+            setOperation(`${result} ${op}`)
+        }
+    }
+    function handleEquals() {
+        if(operation && result) {
+            let res = 0
+            handleOperationInsert('=')
+            const placeholder = `${operation} ${result} =`
+            const digits = placeholder.split(' ')
+            digits.forEach((element: string, index: number) => {
+                if(element === '*') {
+                    res = +digits[index-1] * +digits[index+1]
+                    digits[index+1] = (+digits[index-1] * +digits[index+1]).toString()
+                    console.log(digits)
+                } else if(element === '/') {
+                    res = +digits[index-1] / +digits[index+1]
+                    digits[index+1] = (+digits[index-1] / +digits[index+1]).toString()
+                    console.log(digits)
+                }
+            })
+            digits.forEach((element: string, index: number) => {
+                if(element === '+') {
+                    res = +digits[index-1] + +digits[index+1]
+                    digits[index+1] = (+digits[index-1] + +digits[index+1]).toString()
+                    console.log(digits)
+                } else if(element === '-') {
+                    res = +digits[index-1] - +digits[index+1]
+                    digits[index+1] = (+digits[index-1] - +digits[index+1]).toString()
+                    console.log(digits)
+                }
+            })
+            setResult(res.toString())
+        }
+    }
+    function handleClear() {
+        setOperation(undefined)
+        setResult(undefined)
+    }
+    function handleBackspace() {
+        if(result) {
+            setResult(result.slice(0, result.length-1))
         }
     }
     return (
         <Head title='Calculator'>
             <Wrapper>
-                <Display>{result}</Display>
-                <Cell>AC</Cell>
-                <Cell>C</Cell>
-                <Cell>*</Cell>
-                <Cell>/</Cell>
-                <Cell onClick={() => handleInsert(1)}>
-                    1
-                </Cell>
-                <Cell onClick={() => handleInsert(2)}>2</Cell>
-                <Cell onClick={() => handleInsert(3)}>3</Cell>
-                <Cell>-</Cell>
-                <Cell onClick={() => handleInsert(4)}>4</Cell>
-                <Cell onClick={() => handleInsert(5)}>5</Cell>
-                <Cell onClick={() => handleInsert(6)}>6</Cell>
-                <Cell>+</Cell>
-                <Cell onClick={() => handleInsert(7)}>7</Cell>
-                <Cell onClick={() => handleInsert(8)}>8</Cell>
-                <Cell onClick={() => handleInsert(9)}>9</Cell>
-                <Equals>=</Equals>
-                <Zero onClick={() => handleInsert(0)}>0</Zero>
-                <Cell>.</Cell>
+                <Display>
+                    <DisplaySecundary>
+                        {operation}
+                    </DisplaySecundary>
+                    <DisplayPrimary>
+                        {result}
+                    </DisplayPrimary>
+                </Display>
+                <Cell onClick={() => handleClear()}>AC</Cell>
+                <Cell onClick={() => handleBackspace()}>C</Cell>
+                <Cell onClick={() => handleOperationInsert('*')}>*</Cell>
+                <Cell onClick={() => handleOperationInsert('/')}>/</Cell>
+                <Cell onClick={() => handleNumberInsert('1')}>1</Cell>
+                <Cell onClick={() => handleNumberInsert('2')}>2</Cell>
+                <Cell onClick={() => handleNumberInsert('3')}>3</Cell>
+                <Cell onClick={() => handleOperationInsert('-')}>-</Cell>
+                <Cell onClick={() => handleNumberInsert('4')}>4</Cell>
+                <Cell onClick={() => handleNumberInsert('5')}>5</Cell>
+                <Cell onClick={() => handleNumberInsert('6')}>6</Cell>
+                <Cell onClick={() => handleOperationInsert('+')}>+</Cell>
+                <Cell onClick={() => handleNumberInsert('7')}>7</Cell>
+                <Cell onClick={() => handleNumberInsert('8')}>8</Cell>
+                <Cell onClick={() => handleNumberInsert('9')}>9</Cell>
+                <Equals onClick={() => handleEquals()}>=</Equals>
+                <Zero onClick={() => handleNumberInsert('0')}>0</Zero>
+                <Cell onClick={() => handleNumberInsert('.')}>.</Cell>
             </Wrapper>
         </Head>
     )
