@@ -1,14 +1,20 @@
+import Head from 'components/Head'
 import type { NextPage } from 'next'
 import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-    background-color: #525252;
-    height: 100vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `
 
 const Input = styled.input`
+    margin: .5em;
     padding: .5em .2em;
+    background-color: ${props => props.theme.colors.backgroundSecundary};
 `
 
 const BinDec: NextPage = () => {
@@ -30,15 +36,17 @@ const BinDec: NextPage = () => {
         }
     }
     return (
-        <Wrapper>
-            <Input
-                type='number'
-                placeholder='Binario'
-                value={number}
-                onChange={handleInput}
-            />
-            {renderNumber(number)}
-        </Wrapper>
+        <Head title='Bin2Dec'>
+            <Wrapper>
+                <Input
+                    type='number'
+                    placeholder='Binario'
+                    value={number}
+                    onChange={handleInput}
+                />
+                {renderNumber(number)}
+            </Wrapper>
+        </Head>
     )
 }
 
