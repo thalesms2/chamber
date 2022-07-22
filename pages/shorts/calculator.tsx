@@ -1,6 +1,5 @@
-import { equal } from 'assert'
 import Head from 'components/Head'
-import { NextPage } from 'next'
+import type { NextPage } from 'next'
 import React from 'react'
 import styled from 'styled-components'
 
